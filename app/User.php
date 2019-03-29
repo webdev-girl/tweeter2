@@ -5,11 +5,15 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+// use Spatie\MediaLibrary\HasMedia\HasMedia;
+// use Spatie\MediaLibrary\Models\Media;
+ // implements        HasMedia
 
 class User extends Authenticatable
-{
+ {
     use Notifiable;
-
+    // use HasMediaTrait;
     /**
      * The attributes that are mass assignable.
      *
@@ -89,5 +93,12 @@ public function canFollow($user)
 public function canUnFollow($user)
 {
     return $this->isFollowing($user);
+
 }
+// public function registerMediaConversions(Media $media = null)
+// {
+//     $this->addMediaConversion('thumb')
+//         ->width(60)
+//         ->height(60);
+//     }
 }

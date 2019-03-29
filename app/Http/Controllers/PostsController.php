@@ -11,11 +11,12 @@ use Auth;
 use DB;
 use App\Http\Resources\Tweet as TweetResource;
 use App\Http\Resources\TweetLike as TweetLikeResource;
+
 class PostsController extends Controller
 {
     public function __construct()
     {
-           $this->middleware('auth');
+            $this->middleware('auth');
     }
 
     public function index() {
@@ -45,18 +46,18 @@ class PostsController extends Controller
 
          if(isset($tweetLike->like) && ($tweetLike->like == "1")){
              $newTweet['liked'] = true;
-              }
-              $newTweet['user'] = Tweet::find($tweet->id)->user;
+           }
+            $newTweet['user'] = Tweet::find($tweet->id)->user;
 
-              if($user->id == $tweet->user_id){
-                  $newTweet['has_permissions'] = 1;
-              }
+          if($user->id == $tweet->user_id){
+              $newTweet['has_permissions'] = 1;
+          }
 
           if($user->id == $tweet->user_id){
               $newTweet['can_delete'] = 1;
-              }
+          }
              $tweetCollection[] = $newTweet;
-              }
+          }
             $tweets = $tweetCollection;
             $likes = DB::table('tweet_likes')->where('user_id', '=', $user->id)->get();
             $countLikes = count($likes);
@@ -75,9 +76,9 @@ class PostsController extends Controller
     }
 /////////this works
     public function deleteTweet(Request $request) {
-    $tweet = Tweet::find($request->tweet_id);
-    if($tweet){
-    Tweet::destroy($request->tweet_id);
+        $tweet = Tweet::find($request->tweet_id);
+        if($tweet){
+        Tweet::destroy($request->tweet_id);
     }
     // return redirect('home');
        return back()
@@ -127,14 +128,14 @@ class PostsController extends Controller
 //         return response()->json($tweets);
 //     }
 
-    public function store(Request $request, Post $post)
-    {
-        $newTweet = $request->user()->tweets()->create([
-            'body' => $request->get('body')
-        ]);
-
-        return response()->json($tweet->with('user')->find($newTweet->id));
-    }
+    // public function store(Request $request, Post $post)
+    // {
+    //     $newTweet = $request->user()->tweets()->create([
+    //         'body' => $request->get('body')
+    //     ]);
+    //
+    //     return response()->json($tweet->with('user')->find($newTweet->id));
+    // }
 
       public function getAllTweets(){
           $tweets = Tweet::get();
@@ -143,5 +144,9 @@ class PostsController extends Controller
       public function getAlltweetLikes(){
           $tweetlikes = TweetLike::get();
           return new TweetLikeResource($tweetlikes);
+      }
+      public function getTweetsByNumber($number){
+          $tweets = Tweet::limit($number)->get();
+          return new TweetLikeResource($tweets);
       }
 }

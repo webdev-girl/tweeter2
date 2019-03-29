@@ -29,7 +29,6 @@
                             </button>
                         </div>
 
-
                         <li><a href="/profile">Profile</a></li>
                         <li><a href="{{ url('/logout') }}"> logout </a></li>
                     </ul>
@@ -49,10 +48,14 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{-- <img src="{{Auth::user()->getFirstMediaUrl('avatars', 'thumb') }}"> --}}
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="/profile">
+                                      User Profile
+                                  </a>
                                      <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -74,7 +77,7 @@
                 <div class="col-sm-4 left-profile">
                     <div class="container">
                        <div>
-                            <div class="col-md">
+                             {{-- <div class="col-md">
                                <div class="card card-default">
                                 @foreach ($tweets as $tweet)
                                 @endforeach
@@ -116,48 +119,41 @@
                                                    <div class="col-sm-1">
                                                        <a href="user-display"><img class="tweet-avatar" src="images/profile.png" alt="profile" ></a>
                                                    </div>
-                                                    {{-- <img align="left" class="fb-image-lg" src="images/brittanycover.png" alt="Profile image example"/ style="margin-top:0;">
-                                                    <img align="left" class="fb-image-profile thumbnail" src="images/brittany.png" alt="Profile image example"/> --}}
+                                                    {{-- <img align="left" class="fb-image-lg" src="images/brittanycover.png" alt="Profile image example"/ style="margin-top:0;"> --}}
+                                                    {{-- <img align="left" class="fb-image-profile thumbnail" src="images/brittany.png" alt="Profile image example"/> --}}
                                                    <div>
-                                                       <h4>{{$name->name}}</h4>
-                                                       <p> Innotech Collage</p>
+                                                       {{-- <h4>{{$name->name}}</h4> --}}
+                                                       {{-- <p> Innotech Collage</p> --}}
                                                    </div>
                                                    <div>
+                                                      {{-- <h1 id="title" >{{ title}}</h1> --}}
                                                        <div>
+
                                                            <a href="user.follow/{user->id}"class="btn btn-primary">{{ __('Follow') }}</a>
                                                            <a href="user.unFollow/{user->id}"class="btn btn-primary">{{ __('Un Follow') }}</a>
                                                         </div>
-                                                	{{-- <button type="button" class="btn btn-danger btn-sm">Message</button> --}}
-                                                   </div>
-                                               @endforeach
+                                                    </div>
+                                                {{-- @endforeach  --}}
                                                 </div>
-                                                   {{-- <div>
-                                                       <div>
-                                                           <a href="user.follow/{user->id}"class="btn btn-primary">{{ __('Follow') }}</a>
-                                                           <a href="user.unFollow/{user->id}"class="btn btn-primary">{{ __('Un Follow') }}</a>
-                                                        </div> --}}
-                                           		 {{-- @endforeach	{{-- <button type="button" class="btn btn-danger btn-sm">Message</button> --}}
-                                             	{{-- </div> --}}
-                                             {{-- @endforeach --}}
                                             </div>
 
 
 
-                                                {{-- <div class="container">
+                                                <div class="container">
                                                    <div class="row">
-                                                       <div class="col-md-12"> --}}
+                                                       <div class="col-md-12">
 
-                                                           {{-- @if(auth()->user()->isNot($user))
+                                                            {{-- @if(auth()->user()->isNot($user))
                                                                @if(auth()->user()->isFollowing($user))
                                                                    <a href="{{ route('user.unfollow', $user) }}" class="btn btn-danger">No Follow</a>
                                                                    @else
                                                                    <a href="{{ route('user.follow', $user) }}" class="btn btn-success">Follow</a>
                                                                @endif
-                                                           @endif --}}
+                                                           @endif
 
-                                                       {{-- </div>
+                                                       </div>
                                                    </div>
-                                               </div> --}}
+                                               </div>  --}}
 
                                             {{-- @foreach ($potentialFollowers as $potentialFollower) --}}
                                               {{-- <form method="post" action="follow">
@@ -188,7 +184,7 @@
                                                        </div>
                                                    </div>
                                                </form> --}}
-                                            {{-- @endforeach --}}
+                                         {{-- @endforeach --}}
                                            </div>
 
                                         </div>

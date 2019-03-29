@@ -17,8 +17,8 @@ class CreateTweetsTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned()->index();
             $table->string('tweet');
-            // $table->foreign('user_id')->unsigned()->index()->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
+            $table->foreign('user_id')->unsigned()->index()->references('id')->on('users')->onDelete('cascade');
         });
     }
 

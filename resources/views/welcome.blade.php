@@ -35,7 +35,7 @@
                                 @if (Route::has('login'))
                                 <div>
                                     @auth
-                                     <a href="{{ url('home') }}">Home</a>
+                                    <a href="{{ url('/home') }}">Home</a>
                                     @else
                                     <li><a href="{{ route('login') }}" class="w3-btn w3 index-login-button" >Login</a></li>
 

@@ -18,9 +18,9 @@ class CreateCommentsTable extends Migration
             $table->integer('user_id')->unsigned()->index();
             $table->integer('tweet_id')->unsigned()->index();
             $table->text('comment');
-            // $table->integer('user_id')->unsigned()->references('id')->on('users')->onDelete('cascade');
-            // $table->integer('tweet_id')->unsigned()references('id')->on('tweets')->onDelete('cascade');
             $table->timestamps();
+            $table->integer('user_id')->unsigned()->references('id')->on('users')->onDelete('cascade');
+            $table->integer('tweet_id')->unsigned()references('id')->on('tweets')->onDelete('cascade');
 
         });
     }

@@ -37,8 +37,7 @@
 
             @yield('pages-content')
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/ScrollMagic.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/plugins/debug.addIndicators.min.js"></script>
+    
     @include('partials.footer')
     </body>
 </html>

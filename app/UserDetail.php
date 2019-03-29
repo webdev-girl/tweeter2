@@ -11,4 +11,5 @@ class UserDetail extends Model
         {
            return $this->belongsTo(User::class);
         }
+    
 }

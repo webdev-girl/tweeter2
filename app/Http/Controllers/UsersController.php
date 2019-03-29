@@ -113,26 +113,26 @@ class UsersController extends Controller
               ->with('success','You have successfully updated your details.');
          }
 
-        public function follow(Request $request, User $user){
-
-            if($request->user()->canFollow($user)) {
-                $request->user()->following()->attach($user);
-            }
-                return redirect()->back();
-            }
-
-        public function unFollow(Request $request, User $user){
-
-            if($request->user()->canUnFollow($user)) {
-                $request->user()->following()->detach($user);
-            }
-                return redirect()->back();
-            }    
-                public function getAllUsers(){
-            $users = User::get();
-            // var_dump($users);
-            return new UserResource($users);
-        }
+        // public function follow(Request $request, User $user){
+        //
+        //     if($request->user()->canFollow($user)) {
+        //         $request->user()->following()->attach($user);
+        //     }
+        //         return redirect()->back();
+        //     }
+        //
+        // public function unFollow(Request $request, User $user){
+        //
+        //     if($request->user()->canUnFollow($user)) {
+        //         $request->user()->following()->detach($user);
+        //     }
+        //         return redirect()->back();
+        //     }
+        //         public function getAllUsers(){
+        //     $users = User::get();
+        //     // var_dump($users);
+        //     return new UserResource($users);
+        // }
         //    public function followUser(int $profileId){
         //
         //      $user = User::find($profileId);
@@ -155,20 +155,21 @@ class UsersController extends Controller
         //    $user->followers()->detach(auth()->user()->id);
         //    return redirect()->back()->with('success', 'Successfully unfollowed the user.');
         //    }
-        //
-        //    public function show(int $userId){
-        //
-        //    $user = User::find($userId);
-        //    $followers = $user->followers;
-        //    $followings = $user->followings;
-        //    return view('user.show', compact('user', 'followers' , 'followings');
-        //    }
+
+           // public function show(int $userId){
+           //
+           // $user = User::find($userId);
+           // $followers = $user->followers;
+           // $followings = $user->followings;
+           // return view('user.show', compact('user', 'followers' , 'followings');
+           // }
 
         // public function follow(Request $request){
         // $user = Auth::user();
-        // $follower = new follower;
+        // $follower = new Follower;
         // $follower ->user_id = $user->id;
-        // $follower ->following = $request->follow;
+        // $follower ->follower_id = $request->follow_id;
+        // $follower ->follower = $request->follow;
         // $follower -> save();
         // return redirect('home');
         // }

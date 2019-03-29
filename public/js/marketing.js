@@ -4,3 +4,4 @@ var options = {
 }
 
 var typed = new Typed(".element", options);
+ScrollReveal().reveal('.headline');

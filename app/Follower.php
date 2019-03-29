@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Follower extends Model
 {
     public function follower(){
-        return $this->belongsToMany(User::class, 'followers', 'user_id', 'follower_id')->withTimestamps();
+        return $this->belongsToMany(User::class, 'follower', 'user_id', 'follower_id')->withTimestamps();
 }
 
         /**
@@ -15,6 +15,6 @@ class Follower extends Model
          */
         public function followings()
         {
-            return $this->belongsToMany(User::class, 'followers', 'follower_id', 'user_id')->withTimestamps();
+            return $this->belongsToMany(User::class, 'follower', 'follower_id', 'user_id')->withTimestamps();
         }
 }

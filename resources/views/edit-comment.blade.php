@@ -15,7 +15,7 @@
          <div class="collapse navbar-collapse" id="navbarSupportedContent">
              <!-- Left Side Of Navbar -->
              <ul class="navbar-nav mr-auto">
-                 <li><a class="login" class="navbar-brand" href="{{ url('/') }}"><img src="../images/twitterbird.png" width="23px" height="23px">Home</a></li>
+                 <li><a class="login" class="navbar-brand" href="{{ url('/home') }}"><img src="../images/twitterbird.png" width="23px" height="23px">Home</a></li>
                  <li><a href="/moments">Moments</a></li>
                  <li><a href="/notifications">Notifications</a></li>
                  <li><a href="/messages">Messages</a></li>
@@ -39,10 +39,14 @@
                  @else
                      <li class="nav-item dropdown">
                          <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                             {{-- <img src="{{Auth::user()->getFirstMediaUrl('avatars', 'thumb') }}"> --}}
                              {{ Auth::user()->name }} <span class="caret"></span>
                          </a>
 
                          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                             <a class="dropdown-item" href="/profile">
+                               User Profile
+                           </a>
                               <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                               document.getElementById('logout-form').submit();">

@@ -55,15 +55,6 @@
             </div>
         </div>
             <div class="col-sm">
-
-                {{-- <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h3>{{ $user->name }}</h3>
-
-                        </div>
-                    </div>
-                </div> --}}
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-3">
@@ -92,7 +83,7 @@
                                                             <div class="col-md-12 align-right">
                                                                 First Name
                                                                 <br/>
-                                                                {{ $userDetail->first_name }}
+                                                                {{-- {{ $userDetail->first_name }} --}}
                                                             </div>
                                                         </div>
                                                         <div class="glyphicon glyphicon-user">
