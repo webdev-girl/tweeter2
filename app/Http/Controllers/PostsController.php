@@ -67,6 +67,7 @@ class PostsController extends Controller
 
 /// /////this works
     public function saveTweet(Request $request){
+        // $this->middleware('auth');
         $user = Auth::user();
         $tweet = new Tweet;
         $tweet ->user_id = $user->id;
