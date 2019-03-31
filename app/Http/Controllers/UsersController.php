@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Tweet;
 use App\Comment;
@@ -26,31 +24,24 @@ class UsersController extends Controller
             $editTweet = new Tweet;
             $tweetLike = new TweetLike;
             $tweets = $tweet->where('user_id', $user->id)->get();
-
             // $follower = new Follower;
             // $follower = $follower->where("user_id",$user->id)->where("following", 1)->get(array('id'))->toArray();
             // $potentialFollowers = $users = $users->get();
-
             $tweet = Tweet::orderBy('created_at','desc')->get();
             $tweetCollection = array();
-
         foreach ($tweets as $tweet) {
             $newTweet = $tweet;
             $comments = Tweet::find($tweet->id)->comments;
             $newTweet['comments'] = $comments;
-
             $newTweet['liked'] = false;
              // $tweetLike = \DB::table('TweetLike')->where('user_id', $user->id)->where('tweet_id', $tweet->id)->orderBy('created_at','DESC')->first();
-
              if(isset($tweetLike->like) && ($tweetLike->like == "1")){
                 $newTweet['liked'] = true;
              }
                 $newTweet['user'] = Tweet::find($tweet->id)->user;
-
              if($user->id == $tweet->user_id){
                 $newTweet['has_permissions'] = 1;
             }
-
             if($user->id == $tweet->user_id){
                $newTweet['can_delete'] = 1;
             }
@@ -59,32 +50,23 @@ class UsersController extends Controller
                $tweets = $tweetCollection;
               return view('home',compacts('user','potentialFollowers','tweets'));
             }
-
         public function profile(){
             $user = Auth::user();
             $userDetail = new UserDetail();
             $userDetail = $userDetail->find($user->id);
             return view('profile',compact('user', 'userDetail'));
         }
-
         public function update_avatar(Request $request){
-
-         $request->validate([
+            $request->validate([
              'avatar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
          ]);
-
          $user = Auth::user();
-
          $avatarName = $user->id.'_avatar'.time().'.'.request()->avatar->getClientOriginalExtension();
-
          $request->avatar->storeAs('avatars',$avatarName);
-
          $user->avatar = $avatarName;
          $user->save();
-
          return back()
              ->with('success','You have successfully upload image.');
-
          }
  // this works//////
         public function editProfileDisplay(Request $request){
@@ -112,23 +94,19 @@ class UsersController extends Controller
           return back()
               ->with('success','You have successfully updated your details.');
          }
-
         public function follow(Request $request, User $user){
-
             if($request->user()->canFollow($user)) {
                 $request->user()->following()->attach($user);
             }
                 return redirect()->back();
             }
-
         public function unFollow(Request $request, User $user){
-
             if($request->user()->canUnFollow($user)) {
                 $request->user()->following()->detach($user);
             }
                 return redirect()->back();
-            }    
-                public function getAllUsers(){
+            }
+        public function getAllUsers(){
             $users = User::get();
             // var_dump($users);
             return new UserResource($users);
@@ -163,7 +141,6 @@ class UsersController extends Controller
         //    $followings = $user->followings;
         //    return view('user.show', compact('user', 'followers' , 'followings');
         //    }
-
         // public function follow(Request $request){
         // $user = Auth::user();
         // $follower = new follower;

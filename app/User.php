@@ -40,54 +40,32 @@ class User extends Authenticatable
         /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    // public function followers()
-    // {
-    //     return $this->belongsToMany(User::class, 'followers', 'user_id', 'follower_id')->withTimestamps();
-    // }
-    //
-    // /**
-    //  * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-    //  */
-    // public function followings()
-    // {
-    //     return $this->belongsToMany(User::class, 'followers', 'user_id', 'follower_id')->withTimestamps();
-    // }
-    public function following()
-{
-   return $this->belongsToMany(User::class, following, user_id, follower_id);
-}
+
+
+
+
     public function tweets(){
 
    return $this->hasMany(Tweet::class);
     }
-    public function getRouteKeyName(){
 
-   return 'name';
-    }
+        public function follows(User $user)
+        {
+            $this->following()->attach($user->id);
+        }
 
-    public function getProfileLinkAttribute(){
-        return route('user.show', $this);
-    }
-    public function isNot($user)
-{
-    return $this->id !== $user->id;
-}
+        public function unfollows(User $user)
+        {
+            $this->following()->detach($user->id);
+        }
 
-public function isFollowing($user)
-{
-    return (bool) $this->following->where('id', $user->id)->count();
-}
+        public function following()
+        {
+            return $this->belongsToMany('App\User', 'following', 'user_id', 'follower_id')->withTimestamps();
+        }
 
-public function canFollow($user)
-{
-    if(!$this->isNot($user)) {
-        return false;
-    }
-    return !$this->isFollowing($user);
-    }
-
-public function canUnFollow($user)
-{
-    return $this->isFollowing($user);
-}
+        public function isFollowing(User $user)
+        {
+            return !is_null($this->following()->where('follower_id', $user->id)->first());
+        }
 }

@@ -11,11 +11,12 @@ use Auth;
 use DB;
 use App\Http\Resources\Tweet as TweetResource;
 use App\Http\Resources\TweetLike as TweetLikeResource;
+
 class PostsController extends Controller
 {
     public function __construct()
     {
-           $this->middleware('auth');
+           // $this->middleware('auth');
     }
 
     public function index() {
@@ -45,18 +46,18 @@ class PostsController extends Controller
 
          if(isset($tweetLike->like) && ($tweetLike->like == "1")){
              $newTweet['liked'] = true;
-              }
+           }
               $newTweet['user'] = Tweet::find($tweet->id)->user;
 
               if($user->id == $tweet->user_id){
                   $newTweet['has_permissions'] = 1;
-              }
+           }
 
           if($user->id == $tweet->user_id){
               $newTweet['can_delete'] = 1;
-              }
+           }
              $tweetCollection[] = $newTweet;
-              }
+           }
             $tweets = $tweetCollection;
             $likes = DB::table('tweet_likes')->where('user_id', '=', $user->id)->get();
             $countLikes = count($likes);
@@ -66,6 +67,7 @@ class PostsController extends Controller
 
 /// /////this works
     public function saveTweet(Request $request){
+        $this->middleware('auth');
         $user = Auth::user();
         $tweet = new Tweet;
         $tweet ->user_id = $user->id;
@@ -127,21 +129,29 @@ class PostsController extends Controller
 //         return response()->json($tweets);
 //     }
 
-    public function store(Request $request, Post $post)
-    {
-        $newTweet = $request->user()->tweets()->create([
-            'body' => $request->get('body')
-        ]);
+    // public function store(Request $request, Post $post)
+    // {
+    //     $newTweet = $request->user()->tweets()->create([
+    //         'body' => $request->get('body')
+    //     ]);
+    //
+    //     return response()->json($tweet->with('user')->find($newTweet->id));
+    // }
 
-        return response()->json($tweet->with('user')->find($newTweet->id));
-    }
-
-      public function getAllTweets(){
-          $tweets = Tweet::get();
+    public function getAllTweets(){
+        $tweets = Tweet::get();
           return new TweetResource($tweets);
    }
-      public function getAlltweetLikes(){
+   public function saveTweets(){
+        $tweets = Tweet::get();
+          return new TweetResource($tweets);
+   }
+    public function getAllTweetLikes(){
           $tweetlikes = TweetLike::get();
           return new TweetLikeResource($tweetlikes);
-      }
+    }
+    public function getTweetByNumber($number){
+          $tweets = Tweet::limit($number)->get();
+          return new TweetResource($tweets);
+    }
 }

@@ -1,6 +1,4 @@
-// FormComponent.vue
-
-<template>
+ <!-- <template>
     <div class="col-md-4">
         <form @submit.prevent="saveTweet">
             <div class="form-group">
@@ -41,4 +39,4 @@ export default {
         }
     }
 }
-</script>
+</script> -->

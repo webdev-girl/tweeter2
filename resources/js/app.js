@@ -28,34 +28,59 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
-    el: '#app'
-});
+// const app = new Vue({
+//     el: '#app'
+// });
 
-window.Vue = require('vue');
-Vue.component('profile', require('./components/profile/Profile.vue'));
 
-const app = new Vue({
-    el: '#app'
-});
+// Vue.component('profile', require('./components/profile/Profile.vue'));
 
-window.Vue = require('vue');
-import Toasted from 'vue-toasted';
-Vue.use(Toasted)
-Vue.toasted.register('error', message => message, {
-    position : 'bottom-center',
-    duration : 1000
-})
-Vue.component('profile', require('./components/profile/Profile.vue'));
+//
+//
+// window.Vue = require('vue');
+// import Toasted from 'vue-toasted';
+// Vue.use(Toasted)
+// Vue.toasted.register('error', message => message, {
+//     position : 'bottom-center',
+//     duration : 1000
+// })
+// Vue.component('profile', require('./components/profile/Profile.vue'));
+// Vue.component('form-component', require('./components/FormComponent.vue'));
+ Vue.component('home-component', require('./components/HomeComponent.vue'));
+ // Vue.component('tweet-component', require('./components/TweetComponent.vue'));
 // app.js
-
-require('./bootstrap');
-
-window.Vue = require('vue');
-
-Vue.component('form-component', require('./components/FormComponent.vue'));
-
-const app = new Vue({
-    el: '#app'
-});
-Vue.component('home-component', require('./components/HomeComponent.vue'));
+// const app = new Vue({
+//     el: '#app'
+// });
+// const app = new Vue({
+//     el: '#tweetsWrapper',
+//     data(){
+//         return{
+//             tweets: [{
+//                         id: 2,
+//                         user_id: 607,
+//                         tweet: "Gryphon. 'Do you know about this business?' the King added in an impatient tone: 'explanations take such a curious appearance in the pool, 'and she sits purring so nicely by the end of the words all.",
+//                         created_at: "2019-03-30 20:43:01",
+//                         updated_at: "2019-03-30 20:43:01",
+//                         createdDate: "6 hours ago"
+//                         },
+//                         {
+//                         id: 3,
+//                         user_id: 607,
+//                         tweet: "Cheshire cats always grinned; in fact, a sort of thing never happened, and now here I am to see if she was small enough to get out again. That's all.' 'Thank you,' said the Hatter. 'You MUST.",
+//                         created_at: "2019-03-30 20:43:01",
+//                         updated_at: "2019-03-30 20:43:01",
+//                         createdDate: "6 hours ago"
+//                     }],
+//         },
+//         methods(){
+//             showTweet(){
+//                 let url = 'http://127.0.0.1:8000/api/tweetsbynumber/10';
+//                 this.axios.tweet(url, this.tweets).then((response) => {
+//                    this.$router.push({name: 'tweets'});
+//                    console.log('test'this.tweets);
+//                 });
+//             }
+//         }
+//
+// });
