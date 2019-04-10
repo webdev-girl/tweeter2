@@ -12,7 +12,7 @@
             <li><a href="//about.twitter.com/press/brand-assets" rel="noopener">Brand</a></li>
             <li><a href="https://about.twitter.com/products" rel="noopener">Apps</a></li>
             <li><a href="//ads.twitter.com/?ref=gl-tw-tw-twitter-advertise" rel="noopener">Advertise</a></li>
-            <li><a href="https://marketing.twitter.com" rel="noopener">Marketing</a></li>
+            {{-- <li><a href="https://marketing.twitter.com" rel="noopener">Marketing</a></li> --}}
             <li><a href="//dev.twitter.com" rel="noopener">Developers</a></li>
             <li><a href="/i/directory/profiles" rel="noopener">Directory</a></li>
             <li><a href="/settings/personalization" rel="noopener">Settings</a></li>

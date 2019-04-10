@@ -14,8 +14,20 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\User::class, function (Faker $faker) {
+$factory->define(\App\User::class, function (Faker $faker) {
+
+             static $password;
+
+            $filepath = storage_path('avatars');
+
+            if(!File::exists($filepath)){
+            File::makeDirectory($filepath);
+            }
+
     return [
+
+
+        'avatar' => $faker->image($filepath,400, 300),
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'email_verified_at' => now(),

@@ -8,7 +8,7 @@ class CreateUserDetailsTable extends Migration
 {
     /**
      * Run the migrations.
-     *
+     *->unique()->unsigned()->index();
      * @return void
      */
     public function up()

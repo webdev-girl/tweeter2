@@ -30,7 +30,7 @@
 
                     <div class="profile-header-container">
                         <div class="profile-header-img">
-                            <img class="rounded-circle" src="/storage/avatars/{{ $currentUser->avitar }}" />
+                            <img class="rounded-circle" src="/storage/avatars/{{ $currentUser->avatar }}" />
                             <!-- badge -->
                             <div class="rank-label-container">
                              <span class="label label-default rank-label">{{$user->name}}</span>

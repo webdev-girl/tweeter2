@@ -1,0 +1,9 @@
+.block1 {
+  background-color: blue; }
+  .block1 .block2 {
+    background-color: yellow;
+    height: 200px; }
+
+.block4 {
+  widows: 100px;
+  background-color: red; }

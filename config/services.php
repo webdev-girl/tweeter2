@@ -13,7 +13,11 @@ return [
     | to have a conventional place to find your various credentials.
     |
     */
-
+    // 'facebook' => [
+    //     'client_id' => '2223777337952959',
+    //     'client_secret' => '7bb62b29bd632e5863927f6c1d32485a',
+    //     'redirect' => '/home',
+    // ],
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),
         'secret' => env('MAILGUN_SECRET'),

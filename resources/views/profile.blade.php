@@ -31,13 +31,13 @@
                 </div>
                 <div class="row justify-content-center">
 
-                    <div class="profile-header-container">
+                    <div class="profile-header-container profile-container">
                         <div class="profile-header-img">
                             <img class="rounded-circle" src="/storage/avatars/{{ $user->avatar }}" />
                             <!-- badge -->
-                            <div class="rank-label-container">
+                            {{-- <div class="rank-label-container">
                                 <span class="label label-default rank-label">{{$user->name}}</span>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
 
@@ -75,70 +75,83 @@
                     <div class="col-sm-6">
                         <div class="panel panel-info">
                             <div class="panel-heading">
-                                <div class="glyphicon glyphicon-camera">
-                                    {{-- <a class="media-left" href="#444">
+                                <div class="">
+                                    <a class="media-left" href="#444">
                                         <img alt="profile" class="media-object img-rounded" src="{{$user->avatar}}">
-                                     </a> --}}
-
-                                    <div class="container">
+                                     </a>
+                                     <div class="container">
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <h1>Welcome {{ $user->name }}</h1>
-
                                                 <div class="nav">
                                                     <form name="profile-form" method="post" action="/profile/{{$user->id}}">
                                                         @csrf
-                                                        <div class="glyphicon glyphicon-user">
+                                                        <div class="">
                                                             <div class="col-md-12 align-right">
                                                                 First Name
                                                                 <br/>
-                                                                {{ $userDetail->first_name }}
+                                                             {{ $userDetail->first_name }}
                                                             </div>
                                                         </div>
-                                                        <div class="glyphicon glyphicon-user">
+                                                        <hr>
+                                                        <div class="">
                                                             <div class="col-md-12 align-right">
                                                                 Last Name
                                                                 <br/>
                                                                 {{ $userDetail->last_name }}
                                                             </div>
                                                         </div>
-                                                        <div class="glyphicon glyphicon-envelope">
+                                                        <hr>
+                                                        <div class="">
                                                             <div class="col-md-12 align-right">
                                                                 Email
-                                                                {{ $userDetail->email }}
+                                                                 {{ $userDetail->email }}
                                                             </div>
                                                         </div>
-                                                        <div class="glyphicon glyphicon-phone">
+                                                        <hr>
+                                                        <div class="">
                                                             <div class="col-md-12 align-right">
                                                                 Telephone<br/>
-                                                                {{ $userDetail->phone }}
+                                                                 {{ $userDetail->phone }}
                                                             </div>
                                                         </div>
-                                                        <div class="glyphicon glyphicon-user">
+                                                        <hr>
+                                                        <div class="">
                                                             <div class="col-md-12 align-right">
                                                                 Gender
                                                                 <br/>
-                                                                {{ $userDetail->gender }}
+                                                             {{ $userDetail->gender }}
                                                             </div>
                                                         </div>
-                                                        <div class="glyphicon glyphicon-calendar">
+                                                        <hr>
+                                                        <div class="">
                                                             <div class="col-md-12 align-right">
                                                                 Date of Birth<br/>
-                                                                {{ $userDetail->dob }}
+                                                                 {{ $userDetail->dob }}
                                                             </div>
                                                         </div>
-                                                        <div class="glyphicon glyphicon-globe">
+                                                        <hr>
+                                                        <div class="">
                                                             <div class="col-md-12 align-right">
                                                                 Country<br/>
                                                             </div>
                                                             <div class="col-md-12 align-right">
-                                                                {{ $userDetail->country }}
+                                                                 {{ $userDetail->country }}
+                                                            </div>
+                                                        </div>
+                                                       </br>
+                                                       <hr>
+                                                        <div class="">
+                                                            <div class="col-md-12 align-right">
+                                                                Update your profile click the edit button
+                                                            </div>
+                                                            <div class="col-md-12 align-right">
+                                                                <a href="/edit-profile/{{$user->id}}"class="btn btn-primary profile-edit">{{ __('Edit') }}</a>
                                                             </div>
                                                         </div>
                                                     </form>
                                                 </div>
                                             </div>
-                                            <a href="/edit-profile/{{$user->id}}"class="btn btn-primary">{{ __('Edit') }}</a>
                                         </div>
                                     </div>
                                 </div>

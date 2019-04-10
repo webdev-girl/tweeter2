@@ -1,5 +1,5 @@
-// TimelineComponent.vue
-<div class="mt-3">
+
+<!-- <div class="mt-3">
    <a href="#">
      {{tweet.user.name }}
    </a>  {{ tweet.createdDate }}
@@ -35,4 +35,4 @@ export default {
         });
     }
 }
-</script>
+</script> -->

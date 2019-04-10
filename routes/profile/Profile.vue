@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="card">
       <div class="card-header">
         <i class="fas fa-pencil-alt"></i> Edit Profile
@@ -69,4 +69,4 @@ export default {
     }
   }
 }
-</script>
+</script> -->

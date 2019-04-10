@@ -28,9 +28,9 @@
 
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
-                {{-- <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a> --}}
+                 <a class="navbar-brand" href="{{ url('/') }}">
+                    {{-- {{ config('app.name', 'Laravel') }} --}}
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -42,9 +42,11 @@
                         <li><a href="/moments">Moments</a></li>
                         <li><a href="/notifications">Notifications</a></li>
                         <li><a href="/messages">Messages</a></li>
-                        <li><i class="fab fa-twitter"></i></li>
+                        <img src="../images/twitterbird.png" width="23px" height="23px">
+                        {{-- <li><i class="fa fa-twitter"></i></li> --}}
                         <li><a href="/profile">Profile</a></li>
                         <li><a href="{{ url('/logout') }}"> logout </a></li>
+                        
                     </ul>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                              <a class="dropdown-item" href="/profile">
