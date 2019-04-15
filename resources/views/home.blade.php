@@ -1,7 +1,7 @@
 {{-- @include('partials.header') --}}
 @extends('layouts.app')
 @section('content')
-   <title>Tweeter.com</title>
+   <title>Tweeter-Rachel.com</title>
    <body class="home-bg">
        <div class="container-fluid timeline-div">
            <div class="row">
