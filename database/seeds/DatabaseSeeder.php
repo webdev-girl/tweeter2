@@ -1,32 +1,22 @@
 <?php
-
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
+
 class DatabaseSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Seed the application's database.
      *
      * @return void
      */
-
-           public function run()
-  {
-      // Eloquent::unguard();
-      //
-      //
-      //
-      //
-      //
-      // $this->call(UsersTableSeeder::class);
-      // $this->call(CommentsTableSeeder::class);
-      //
-      // $this->command->info("Database seeded.");
-
-      // Re Guard model
-      // Eloquent::reguard();
-
-        }
+    public function run()
+    {
+         $this->call(UsersTableSeeder::class);
     }
+    factory(App\User::class, 5)->create()->each(function ($user) {
+        for($i=0; $i<=rand(1, 20); $i++) {
+            $user->tweets()->save(factory(App\Tweet::class)->make());
+        }
+}

@@ -1,8 +1,8 @@
 <?php
-
-
-use Illuminate\Support\str;
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
 class UsersTableSeeder extends Seeder
 {
     /**
@@ -10,23 +10,22 @@ class UsersTableSeeder extends Seeder
      *
      * @return void
      */
+    public function run()
+    {
+        DB::table('users')->insert([
+        'name' => Str::random(10),
+        'email' => Str::random(10).'@gmail.com',
+        'password' => bcrypt('secret'),
+        ]);
 
-        public function run()
-             {
-                 DB::table('users')->insert([
-                // 'user_id'=>$factory->create(\App\User::class)->id,
-
-                 'name' => Str::random(10),
-                 'email' => Str::random(10).'@gmail.com',
-                 'password' => bcrypt('secret'),
-                 ]);
-
-            factory(\App\User::class, 50)->create()->each(function ($user) {
-                for($i=0; $i<=rand(1,30); $i++) {
-                    $user->tweets()->save(factory(\App\Tweet::class)->make());
-                }
-            });
-
-
-                    }
-                }
+        factory(App\User::class, 5)->create()->each(function ($user) {
+            for($i=0; $i<=rand(1, 20); $i++) {
+                $user->tweets()->save(factory(App\Tweet::class)->make());
+            }
+            // factory(App\User::class, 5)->create()->each(function ($user) {
+            //     for($i=0; $i<=rand(1, 20); $i++) {
+            //         $user->comments()->save(factory(App\Comment::class)->make());
+        //     //     }
+        });
+    }
+}

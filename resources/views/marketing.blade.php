@@ -40,7 +40,7 @@
                 <p>Want to <em>know</em> more check out our new features, and packages taliored to suit your needs.</p>
         </div>
         <span id="typed"></span>
-        
+
             <h1 class="marketing-title">Why Tweeter?</h1>
 
         <article class="market-article" id="react-root">
@@ -109,8 +109,6 @@
           dots[slideIndex-1].className += " active";
           setTimeout(showSlides, 2000); // Change image every 2 seconds
         }
-    </script>
-
     </script>
     @include('partials.footer')
     </body>

@@ -1,9 +1,13 @@
- <template>
+<!-- <template>
     <div class="comment">
-        {{ comment.comment }}
-         by {{comment.user_id}} @ {{comment.created_at}}
+        <div class="tweet-border">
+            {{ comment.comment}}
+        </div>
+        <div>
+            by {{comment.user_id}} @ {{comment.created_at}}
+        </div>
+        <br/>
     </div>
-
 </template>
 
 <script>
@@ -11,6 +15,7 @@
         mounted() {
             console.log('Comment Component mounted.')
         },
-        props:['comment']
+            props: ['comment'],
+
     }
-</script>
+</script> -->
